@@ -1,7 +1,20 @@
 import React from "react";
 
-function DeleteButton() {
-  return <button>❌</button>;
+type DeleteButtonProps = {
+  deleteTask: () => void;
+};
+
+function DeleteButton({ deleteTask }: DeleteButtonProps) {
+  return (
+    <button
+      onClick={(e) => {
+        e.stopPropagation();
+        deleteTask();
+      }}
+    >
+      ❌
+    </button>
+  );
 }
 
 export default DeleteButton;
